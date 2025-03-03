@@ -68,8 +68,9 @@ services:
       - /app/node_modules
     environment:
       - MONGODB_URI=mongodb://mongodb-order:27017/orders
-      - AUTH_SERVICE_URL=http://auth-service:3001
-      - PRODUCT_SERVICE_URL=http://product-service:3000
+      - VITE_AUTH_SERVICE_URL=http://auth-service:3001
+      - VITE_PRODUCT_SERVICE_URL=http://product-service:3000
+      - VITE_ORDER_SERVICE_URL=http://order-service:3002
     depends_on:
       - mongodb-order
 
