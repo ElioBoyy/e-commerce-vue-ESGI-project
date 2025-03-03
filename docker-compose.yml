@@ -10,8 +10,8 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./frontend:/app
+      - /app/node_modules
     depends_on:
       - auth-service
       - product-service
@@ -30,8 +30,8 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./services/auth-service:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./services/auth-service:/app
+      - /app/node_modules
     environment:
       - MONGODB_URI=mongodb://mongodb-auth:27017/auth
       - JWT_SECRET=your_jwt_secret
@@ -47,8 +47,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./services/product-service:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./services/product-service:/app
+      - /app/node_modules
     environment:
       - MONGODB_URI=mongodb://mongodb-product:27017/products
       - AUTH_SERVICE_URL=http://auth-service:3001
@@ -64,8 +64,8 @@ services:
     ports:
       - "3002:3002"
     volumes:
-      - ./services/order-service:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./services/order-service:/app
+      - /app/node_modules
     environment:
       - MONGODB_URI=mongodb://mongodb-order:27017/orders
       - AUTH_SERVICE_URL=http://auth-service:3001
